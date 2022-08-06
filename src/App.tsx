@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import styles from './App.module.css'
+import GameSelector from './components/Game/GameSelector/GameSelector';
+import Logo from './components/Logo/Logo';
+import CurrentGame from './components/Game/CurrentGame/CurrentGame';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+    const [currentGame, setCurrentGame] = useState("");
+
+    useEffect(() => {
+        if(localStorage.getItem("currentGame") !== "") {
+            const game = localStorage.getItem("currentGame");
+            setCurrentGame(game ? game : "");
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("currentGame", currentGame);
+    }, [currentGame]);
+
+    return (
+        <div className={styles.backgroundScreen}>
+            <div className={styles.area} >
+            <ul className={styles.circles}>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+    </div >
+            <Logo />
+            {currentGame === "" ?
+            <GameSelector setCurrentGame={setCurrentGame} />
+        : <CurrentGame currentGame={currentGame} />}
+        </div>
+    )
 }
 
-export default App;
+export default App
