@@ -8,8 +8,8 @@ export type CurrentGameProps = {
 
 const CurrentGame = (props: CurrentGameProps) => {
     return (
-        <div>
-            {props.currentGame  != "" && props.currentGame === "PlayerVersusAI" ? <PlayerVersusAI /> : <PlayerVersusPlayer />}
+        <div style={{ height: '100%' }}>
+            {props.currentGame  != "" && props.currentGame === "PlayerVersusAI" ? <PlayerVersusAI currentGame={props.currentGame} /> : <PlayerVersusPlayer currentGame={props.currentGame} />}
         </div>
     )
 }

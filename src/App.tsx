@@ -9,36 +9,35 @@ const App = () => {
     const [currentGame, setCurrentGame] = useState("");
 
     useEffect(() => {
-        if(localStorage.getItem("currentGame") !== "") {
-            const game = localStorage.getItem("currentGame");
+        if (sessionStorage.getItem("currentGame") !== "") {
+            const game = sessionStorage.getItem("currentGame");
             setCurrentGame(game ? game : "");
         }
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("currentGame", currentGame);
+        sessionStorage.setItem("currentGame", currentGame);
     }, [currentGame]);
 
     return (
         <div className={styles.backgroundScreen}>
-            <div className={styles.area} >
-            <ul className={styles.circles}>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
-    </div >
-            <Logo />
-            {currentGame === "" ?
-            <GameSelector setCurrentGame={setCurrentGame} />
-        : <CurrentGame currentGame={currentGame} />}
+            <div className={`${styles.light} ${styles.x1}`}></div>
+            <div className={`${styles.light} ${styles.x2}`}></div>
+            <div className={`${styles.light} ${styles.x3}`}></div>
+            <div className={`${styles.light} ${styles.x4}`}></div>
+            <div className={`${styles.light} ${styles.x5}`}></div>
+            <div className={`${styles.light} ${styles.x6}`}></div>
+            <div className={`${styles.light} ${styles.x7}`}></div>
+            <div className={`${styles.light} ${styles.x8}`}></div>
+            <div className={`${styles.light} ${styles.x9}`}></div>
+            <div className={styles.content}>
+                <Logo />
+                <div className={styles.gameContent}>
+                    {currentGame === "" ?
+                        <GameSelector setCurrentGame={setCurrentGame} />
+                        : <CurrentGame currentGame={currentGame} />}
+                </div>
+            </div>
         </div>
     )
 }

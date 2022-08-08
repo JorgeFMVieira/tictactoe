@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './GameSelector.module.css';
 import { BsFillPeopleFill } from 'react-icons/bs';
 import { MdOutlineComputer } from 'react-icons/md';
+import { IoMdSettings } from 'react-icons/io';
 
 export type GameSelectorProps = {
     setCurrentGame: (game: string) => void
@@ -21,6 +22,10 @@ const GameSelector = (props: GameSelectorProps) => {
                 <div className={styles.gameItem} onClick={() => props.setCurrentGame("PlayerVersusAI")}>
                     <div className={styles.gameItemIcon}><MdOutlineComputer /></div>
                     <div className={styles.gameItemText}>Play With Computer</div>
+                </div>
+                <div className={styles.gameItem}>
+                    <div className={styles.gameItemIcon}><IoMdSettings /></div>
+                    <div className={styles.gameItemText}>Settings</div>
                 </div>
             </div>
         </div>

@@ -1,8 +1,15 @@
 import React from 'react'
+import GameBoard from '../GameBoard/GameBoard'
 
-const PlayerVersusPlayer = () => {
+export type PlayerVersusPlayerProps = {
+    currentGame: string
+}
+
+const PlayerVersusPlayer = (props: PlayerVersusPlayerProps) => {
     return (
-        <div style={{ color: "#FFFFFF" }}>PlayerVersusPlayer</div>
+        <div style={{ height: '100%' }}>
+            <GameBoard currentGame={props.currentGame} />
+        </div>
     )
 }
 
