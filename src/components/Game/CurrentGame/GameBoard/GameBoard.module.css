@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Roboto&display=swap');
+
 .gameBoard{
     width: 70%;
     height: calc(100vh - 135px);
@@ -13,6 +15,12 @@
     text-align: center;
     color: #FFFFFF;
     padding: 30px;
+}
+
+.gameStatus span{
+    transition: 0.3s all ease-in-out;
+    font-size: 30px;
+    font-family: 'Mouse Memoirs', sans-serif;
 }
 
 .gameInfo{
@@ -63,19 +71,34 @@
     margin-top: 15px;
 }
 
-.playerActive .playerImage{
+.playerActiveCross .playerImage{
     transition: 0.3s all ease-in-out;
     color: #da3232;
 }
 
-.playerActive .playerName{
+.playerActiveCross .playerName{
     transition: 0.3s all ease-in-out;
     color: #da3232;
 }
 
-.playerActive .playerShape{
+.playerActiveCross .playerShape{
     transition: 0.3s all ease-in-out;
     color: #da3232;
+}
+
+.playerActiveCircle .playerImage{
+    transition: 0.3s all ease-in-out;
+    color: #00a8ff;
+}
+
+.playerActiveCircle .playerName{
+    transition: 0.3s all ease-in-out;
+    color: #00a8ff;
+}
+
+.playerActiveCircle .playerShape{
+    transition: 0.3s all ease-in-out;
+    color: #00a8ff;
 }
 
 .board{
@@ -121,4 +144,21 @@
 
 .boardCell:hover{
     background-color: rgba(22, 21, 21, 0.9);
+}
+
+.gameStatus .button{
+    outline: none;
+    border: none;
+    transition: 0.3s all ease-in-out;
+    background-color: #da3232;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    width: 150px;
+    height: 45px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.gameStatus .button:hover{
+    background-color: rgba(218, 50, 50, 0.8);
 }

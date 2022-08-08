@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import GameSelector from './components/Game/GameSelector/GameSelector';
 import Logo from './components/Logo/Logo';
 import CurrentGame from './components/Game/CurrentGame/CurrentGame';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
 
@@ -14,10 +15,6 @@ const App = () => {
             setCurrentGame(game ? game : "");
         }
     }, []);
-
-    useEffect(() => {
-        sessionStorage.setItem("currentGame", currentGame);
-    }, [currentGame]);
 
     return (
         <div className={styles.backgroundScreen}>
@@ -33,11 +30,13 @@ const App = () => {
             <div className={styles.content}>
                 <Logo />
                 <div className={styles.gameContent}>
-                    {currentGame === "" ?
-                        <GameSelector setCurrentGame={setCurrentGame} />
-                        : <CurrentGame currentGame={currentGame} />}
+                    <Routes>
+                        <Route path="/" element={<GameSelector setCurrentGame={setCurrentGame} />} />
+                        <Route path="/game" element={<CurrentGame currentGame={currentGame} />} />
+                    </Routes>
                 </div>
             </div>
+
         </div>
     )
 }

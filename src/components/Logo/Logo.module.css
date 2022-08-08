@@ -1,6 +1,8 @@
 .logo{
     width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: row;
 }
 
 .logoItems{
@@ -20,4 +22,35 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: white;
     text-shadow: 4px 4px #da3232, 10px 10px #000000;
+}
+
+.menu{
+    height: fit-content;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px;
+    margin-left: auto;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(22, 21, 21, 0.5);
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+
+.menu span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.menu .menuIcon{
+    font-size: 1.5em;
+}
+
+.menu:hover{
+    background-color: rgba(22, 21, 21, 0.9);
 }
