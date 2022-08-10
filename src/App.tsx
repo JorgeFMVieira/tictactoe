@@ -16,6 +16,10 @@ const App = () => {
         }
     }, []);
 
+    useEffect(() => {
+        sessionStorage.setItem("currentGame", currentGame);
+    }, [currentGame]);
+
     return (
         <div className={styles.backgroundScreen}>
             <div className={`${styles.light} ${styles.x1}`}></div>

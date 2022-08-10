@@ -27,10 +27,6 @@ const GameSelector = (props: GameSelectorProps) => {
                     <div className={styles.gameItemIcon}><MdOutlineComputer /></div>
                     <div className={styles.gameItemText}>Play With Computer</div>
                 </div>
-                <div className={styles.gameItem}>
-                    <div className={styles.gameItemIcon}><IoMdSettings /></div>
-                    <div className={styles.gameItemText}>Settings</div>
-                </div>
             </div>
         </div>
     )

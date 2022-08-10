@@ -31,11 +31,29 @@ const GameBoard = (props: GameBoardProps) => {
     const handleClick = (i: number) => {
         const squares = square.slice();
         if (squares[i] === null) {
-            squares[i] = player1Turn ? 'X' : 'O';
+            squares[i] = player1Turn === true ? 'X' : 'O';
             setSquare(squares);
             setPlayer1Turn(!player1Turn);
         }
     }
+
+    const computerPlays = () => {
+        const squares = square.slice();
+        const randomNumber = Math.floor(Math.random() * 9);
+        if(squares[randomNumber] === null) {
+            squares[randomNumber] = player1Turn === true ? 'X' : 'O';
+            setSquare(squares);
+            setPlayer1Turn(!player1Turn);
+        }else{
+            computerPlays();
+        }
+    }
+
+    useEffect(() => {
+        if(player1Turn === false && props.currentGame === 'PlayerVersusAI' && winner === null) {
+            computerPlays();
+        }
+    }, [player1Turn]);
 
     function checkWinner(squares: string[]) {
         const lines = [
@@ -48,15 +66,17 @@ const GameBoard = (props: GameBoardProps) => {
             [0, 4, 8],
             [2, 4, 6],
         ];
-        if (square.every(square => square !== null)) {
-            return 'Draw';
-        }
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
                 return squares[a];
             }
         }
+
+        if (square.every(square => square !== null)) {
+            return 'Draw';
+        }
+
         return null;
     }
 
