@@ -131,7 +131,7 @@ const GameBoard = (props: GameBoardProps) => {
                 }
             </div>
             <div className={styles.gameInfo}>
-                <div className={`${styles.playerInfo} ${player1Turn === true && winner === null ? styles.playerActiveCross : ''}`}>
+                <div className={`${styles.playerInfo} ${styles.player1Mobile} ${player1Turn === true && winner === null ? styles.playerActiveCross : ''}`}>
                     <div className={styles.playerImage}><FaUserCircle /></div>
                     <p className={styles.playerName}>{props.currentGame === 'PlayerVersusPlayer' ? 'Player X' : 'You'}</p>
                     <div className={styles.playerShape} style={{ color: '#da3232' }}><BsXCircle /></div>
@@ -156,7 +156,7 @@ const GameBoard = (props: GameBoardProps) => {
                         {renderSquare(8)}
                     </div>
                 </div>
-                <div className={`${styles.playerInfo} ${player1Turn === false && winner === null ? styles.playerActiveCircle : ''}`}>
+                <div className={`${styles.playerInfo} ${styles.player2Mobile} ${player1Turn === false && winner === null ? styles.playerActiveCircle : ''}`}>
                     <div className={styles.playerImage}><FaUserCircle /></div>
                     <p className={styles.playerName}>{props.currentGame === 'PlayerVersusPlayer' ? 'Player O' : 'Computer'}</p>
                     <div className={styles.playerShape} style={{ color: '#00a8ff' }}><BsRecordCircle /></div>
