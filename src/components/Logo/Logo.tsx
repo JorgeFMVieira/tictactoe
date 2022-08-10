@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Logo.module.css'
 import { BiMenu } from 'react-icons/bi';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Logo = () => {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const clearPoints = () => {
         sessionStorage.setItem("player1Points", "0");
@@ -22,7 +23,9 @@ const Logo = () => {
                 <p>TOE</p>
             </div>
             <div className={styles.menu} onClick={() => {navigate("/");clearPoints()}}>
-                <span><BiMenu className={styles.menuIcon} />Menu</span>
+                {location.pathname === '/game' ? 
+                    <span><BiMenu className={styles.menuIcon} />Menu</span>
+                : null}
             </div>
         </div>
     )

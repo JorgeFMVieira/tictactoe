@@ -42,8 +42,10 @@ const GameBoard = (props: GameBoardProps) => {
         const randomNumber = Math.floor(Math.random() * 9);
         if(squares[randomNumber] === null) {
             squares[randomNumber] = player1Turn === true ? 'X' : 'O';
-            setSquare(squares);
-            setPlayer1Turn(!player1Turn);
+            setTimeout(() => {
+                setSquare(squares);
+                setPlayer1Turn(!player1Turn);
+            }, 500);
         }else{
             computerPlays();
         }
